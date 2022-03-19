@@ -1,4 +1,4 @@
-let musicContainer = document.querySelector(".class");
+//bringing the different elements we need in DOM
 let nowPlaying = document.querySelector(".show_song_no");
 let trackImg = document.getElementById("track_image");
 let trackArtist = document.getElementById("artist");
@@ -15,6 +15,7 @@ let currentTrack = document.createElement("audio");
 let trackIndex = 0;
 let isPlaying = false;
 
+//an array for our music list
 const musicList = [
   {
     img: "images/faded.jpeg",
@@ -36,6 +37,8 @@ const musicList = [
   },
 ];
 
+//loading our songs into the DOM
+
 loadTrack(trackIndex);
 
 function loadTrack(trackIndex) {
@@ -49,16 +52,17 @@ function loadTrack(trackIndex) {
   currentTrack.addEventListener("ended", nextTrack);
 }
 
-function repeatTrack() {
-  let currentIndex = trackIndex;
-  loadTrack(currentIndex);
-  playTrack();
-}
+// function repeatTrack() {
+//   let currentIndex = trackIndex;
+//   loadTrack(currentIndex);
+//   playTrack();
+// }
 
 function justPlay() {
   isPlaying ? pauseTrack() : playTrack();
 }
 
+//a function to make the songs play
 function playTrack() {
   currentTrack.play();
   isPlaying = true;
@@ -66,6 +70,7 @@ function playTrack() {
   playBtn.innerHtml = `<i class="fa fa-pause-circle-o"></i>`;
 }
 
+//a function to pause the songs
 function pauseTrack() {
   currentTrack.pause();
   isPlaying = false;
@@ -73,6 +78,7 @@ function pauseTrack() {
   playBtn.innerHtml = `<i class="fas fa-play-circle"></i>`;
 }
 
+//a function to move to the next song
 function nextSong() {
   if (trackIndex < musicList.length - 1) {
     trackIndex += 1;
