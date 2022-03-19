@@ -17,10 +17,10 @@ let isPlaying = false;
 
 const musicList = [
   {
-    img: "images/alive.jpeg",
-    name: "Alive",
-    artist: "Sia",
-    music: "music/Sia-Alive-wowplus.net_.mp3",
+    img: "images/faded.jpeg",
+    name: "Faded",
+    artist: "Alan Walker",
+    music: "music/Alan-Walker-Faded.mp3",
   },
   {
     img: "images/themonster.jpeg",
@@ -29,10 +29,10 @@ const musicList = [
     music: "music/Eminem-ft.-Rihanna-The-Monster-wowplus.net_.mp3",
   },
   {
-    img: "images/faded.jpeg",
-    name: "Faded",
-    artist: "Alan Walker",
-    music: "music/Alan-Walker-Faded.mp3",
+    img: "images/alive.jpeg",
+    name: "Alive",
+    artist: "Sia",
+    music: "music/Sia-Alive-wowplus.net_.mp3",
   },
 ];
 
