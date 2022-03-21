@@ -25,7 +25,7 @@ const musicList = [
   },
   {
     img: "images/themonster.jpeg",
-    name: "The Monster",
+    name: "monster",
     artist: "Eminem ft Rihanna",
     music: "music/Eminem-ft.-Rihanna-The-Monster-wowplus.net_.mp3",
   },
@@ -49,14 +49,14 @@ function loadTrack(trackIndex) {
   trackArtist.textContent = musicList[trackIndex].artist;
   nowPlaying.textContent = [trackIndex + 1] + "of" + musicList.length;
 
-  currentTrack.addEventListener("ended", nextTrack);
+  currentTrack.addEventListener("ended", nextSong);
 }
 
-// function repeatTrack() {
-//   let currentIndex = trackIndex;
-//   loadTrack(currentIndex);
-//   playTrack();
-// }
+function repeatTrack() {
+  let currentIndex = trackIndex;
+  loadTrack(currentIndex);
+  playTrack();
+}
 
 function justPlay() {
   isPlaying ? pauseTrack() : playTrack();
@@ -67,7 +67,7 @@ function playTrack() {
   currentTrack.play();
   isPlaying = true;
   trackImg.classList.add("rotate");
-  playBtn.innerHtml = `<i class="fa fa-pause-circle-o"></i>`;
+  justPlay.innerHtml = `<i class="fa fa-pause-circle-o"></i>`;
 }
 
 //a function to pause the songs
@@ -75,7 +75,7 @@ function pauseTrack() {
   currentTrack.pause();
   isPlaying = false;
   trackImg.classList.remove("rotate");
-  playBtn.innerHtml = `<i class="fas fa-play-circle"></i>`;
+  justPlay.innerHtml = `<i class="fas fa-play-circle"></i>`;
 }
 
 //a function to move to the next song
@@ -84,6 +84,17 @@ function nextSong() {
     trackIndex += 1;
   } else {
     trackIndex = 0;
+  }
+  loadTrack(trackIndex);
+  playTrack();
+}
+
+//a function to move to the previous song
+function previouSong() {
+  if (trackIndex > 0) {
+    trackIndex -= 1;
+  } else {
+    trackIndex = musicList.length - 1;
   }
   loadTrack(trackIndex);
   playTrack();
